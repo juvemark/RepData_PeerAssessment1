@@ -4,6 +4,7 @@ This assignment makes use of data from a personal activity monitoring device. Th
 
 ## Loading and preprocessing the data
 
+The step of loading data is shown as below:
 1. The data file is downloaded if it is not present
 2. It is uncompressed and read as a data frame.
 3. The interval column is converted to factor type.
@@ -37,7 +38,7 @@ str(tbl)
 
 ## What is mean total number of steps taken per day?
 
-Below is a histogram of the daily total number of steps taken, plotted with a bin interval of 1500 steps. Also marked on the plot are the mean and median of the daily total steps.
+There is a histogram of the daily total number of steps taken below, plotted with a bin interval of 1500 steps. Also marked on the plot are the mean and median of the daily total steps.
 
 ```{r steps_per_day, echo=TRUE}
 calc_steps_per_day <- function(tbl) {

@@ -11,32 +11,6 @@ This assignment makes use of data from a personal activity monitoring device. Th
 5. The data is examined by using summary and str methods on it.
 
 
-```r
-library(ggplot2)  # we shall use ggplot2 for plotting figures
-```
-
-```
-## Error: there is no package called 'ggplot2'
-```
-
-```r
-
-# download and read the data, convert columns for convenience
-read_data <- function() {
-    fname = "activity.zip"
-    source_url = "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
-    if (!file.exists(fname)) {
-        download.file(source_url, destfile = fname, method = "curl")
-    }
-    con <- unz(fname, "activity.csv")
-    tbl <- read.csv(con, header = T, colClasses = c("numeric", "character", 
-        "numeric"))
-    tbl$interval <- factor(tbl$interval)
-    tbl$date <- as.Date(tbl$date, format = "%Y-%m-%d")
-    tbl
-}
-tbl <- read_data()
-```
 
 
 Examine data.
@@ -70,7 +44,7 @@ str(tbl)
 
 ## What is mean total number of steps taken per day?
 
-Below is a histogram of the daily total number of steps taken, plotted with a bin interval of 1500 steps. Also marked on the plot are the mean and median of the daily total steps.
+There is a histogram of the daily total number of steps taken below, plotted with a bin interval of 1500 steps. Also marked on the plot are the mean and median of the daily total steps.
 
 
 ```r
@@ -98,9 +72,7 @@ median_steps = round(median(steps_per_day$steps), 2)
 plot_steps_per_day(steps_per_day, mean_steps, median_steps)
 ```
 
-```
-## Error: could not find function "ggplot"
-```
+![plot of chunk steps_per_day](figure/steps_per_day.png) 
 
 
 **For the total number of steps taken per day:**  
@@ -142,9 +114,7 @@ max_step_interval <- steps_per_interval[which.max(steps_per_interval$steps),
 plot_activity_pattern(steps_per_interval, max_step_interval)
 ```
 
-```
-## Error: could not find function "ggplot"
-```
+![plot of chunk steps_per_interval](figure/steps_per_interval.png) 
 
 
 The **835<sup>th</sup> interval** has the maximum activity on the average.
@@ -200,9 +170,7 @@ complete_median_steps = round(median(complete_steps_per_day$steps), 2)
 plot_steps_per_day(complete_steps_per_day, complete_mean_steps, complete_median_steps)
 ```
 
-```
-## Error: could not find function "ggplot"
-```
+![plot of chunk complete_steps_per_day](figure/complete_steps_per_day.png) 
 
 
 Comparing with the calculations done in the first section of this document, we observe that while the mean value remains unchanghed, the median value has shifted closer to the mean.
@@ -250,7 +218,7 @@ plot_day_of_week_comparison(day_of_week_data)
 ```
 
 ```
-## Error: could not find function "ggplot"
+## Error: object 'day_of_week_data' not found
 ```
 
 
